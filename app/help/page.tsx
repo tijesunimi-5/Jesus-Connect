@@ -2,6 +2,7 @@
 import { Button } from '@/components/Button';
 import { Card } from '@/components/Card';
 import { SectionContainer } from '@/components/section';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 const categories = [
@@ -18,6 +19,7 @@ const states = ["Lagos", "Abuja", "Rivers", "Oyo", "Kaduna", "Enugu", "Other"];
 export default function HelpSelection() {
   const [selectedCat, setSelectedCat] = useState('');
   const [location, setLocation] = useState('');
+  const router = useRouter()
 
   return (
     <main className="min-h-screen bg-[#FDFDFD] pt-12 pb-24">
@@ -61,6 +63,7 @@ export default function HelpSelection() {
           <Button
             className="px-12 py-4 text-lg"
             disabled={!selectedCat}
+            onClick={() => router.push(`help/results?category=${selectedCat}&location=${location || 'anywhere'}`)}
           >
             Find Counselors
           </Button>
