@@ -1,21 +1,24 @@
-'use client'
-import React from 'react'
+import React from 'react';
 
-interface ButtonProps {
-  className?: string;
-  onClick?: () => void;
-  children: string;
-  type?: "submit" | "button" | "reset";
-  disabled?: boolean;
-  key?: string | number
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'outline' | 'ghost';
+  fullWidth?: boolean;
 }
 
-const Button = ({ className, onClick, children, type, disabled, key }: ButtonProps) => {
+export const Button = ({ children, variant = 'primary', fullWidth, className, ...props }: ButtonProps) => {
+  const baseStyles = "px-6 py-3 rounded-2xl font-medium transition-all duration-200 active:scale-95 disabled:opacity-50";
+  const variants = {
+    primary: "bg-slate-900 text-white hover:bg-slate-800 shadow-sm",
+    outline: "border-2 border-slate-200 text-slate-700 hover:bg-slate-50",
+    ghost: "text-slate-600 hover:bg-slate-100",
+  };
+
   return (
-    <button key={key} type={type} disabled={!!disabled} onClick={onClick} className={`${className} bg-[#341A75] text-white px-4 rounded shadow py-2 font-bold tracking-wider`}>
+    <button
+      className={`${baseStyles} ${variants[variant]} ${fullWidth ? 'w-full' : ''} ${className}`}
+      {...props}
+    >
       {children}
     </button>
-  )
-}
-
-export default Button
+  );
+};
