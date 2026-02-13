@@ -2,6 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { Suspense } from 'react'; // Import Suspense
 import { PageContainer } from '@/components/PageContainer';
 import { CounselorCard } from '@/components/CounselorCard';
 import { Button } from '@/components/Button';
@@ -51,24 +52,21 @@ const MOCK_COUNSELORS = [
   }
 ];
 
-export default function ResultsPage() {
+// 1. Move the logic into a sub-component
+function ResultsContent() {
   const searchParams = useSearchParams();
 
-  // Get raw values from URL
   const categoryParam = searchParams.get('category');
   const locationParam = searchParams.get('location');
 
-  // Fallbacks if params are missing
   const category = categoryParam || 'all';
   const location = locationParam || 'anywhere';
 
   const filteredCounselors = MOCK_COUNSELORS.filter(counselor => {
-    // 1. Check Category: Match if param is 'all' OR if expertise contains the category string
     const matchesCategory =
       category.toLowerCase() === 'all' ||
       counselor.expertise.toLowerCase().includes(category.toLowerCase());
 
-    // 2. Check Location: Match if param is 'anywhere' OR exact match with counselor location
     const matchesLocation =
       location.toLowerCase() === 'anywhere' ||
       counselor.location.toLowerCase() === location.toLowerCase();
@@ -77,7 +75,7 @@ export default function ResultsPage() {
   });
 
   return (
-    <PageContainer>
+    <>
       {/* Header Section */}
       <div className="mb-12">
         <Link
@@ -123,19 +121,29 @@ export default function ResultsPage() {
           </Link>
         </div>
       )}
+    </>
+  );
+}
+
+// 2. The main page component wraps the content in Suspense
+export default function ResultsPage() {
+  return (
+    <PageContainer>
+      <Suspense fallback={<div className="py-20 text-center text-slate-500">Loading counselors...</div>}>
+        <ResultsContent />
+      </Suspense>
 
       {/* Safety Notice Card */}
       <div className="mt-16 bg-slate-900 rounded-[32px] p-8 md:p-12 text-white relative overflow-hidden">
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold mb-2">Can't find what you're looking for?</h3>
-            <p className="text-slate-400">Our support team is available for urgent spiritual guidance.</p>
+            <p className="text-slate-400">Our support team is available  for urgent spiritual guidance.</p>
           </div>
           <Button className="bg-emerald-600 hover:bg-emerald-500 border-none whitespace-nowrap">
             Talk to an Admin
           </Button>
         </div>
-        {/* Subtle Decorative Circle */}
         <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl" />
       </div>
     </PageContainer>
