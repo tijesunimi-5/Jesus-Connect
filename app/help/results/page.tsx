@@ -102,6 +102,7 @@ function ResultsContent() {
           {filteredCounselors.map((counselor) => (
             <CounselorCard
               key={counselor.id}
+              id={counselor.id} // Pass the ID here
               name={counselor.name}
               expertise={counselor.expertise}
               location={counselor.location}
