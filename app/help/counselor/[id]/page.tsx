@@ -103,14 +103,14 @@ export default function CounselorProfile({ params }: PageProps) {
         {/* Left Column: Header Card & Focus Areas (Sticky on Desktop) */}
         <div className="lg:col-span-1 lg:sticky lg:top-8 space-y-6">
           <Card className="text-center md:text-left border-emerald-50 shadow-emerald-900/5">
-            <div className="w-24 h-24 bg-emerald-100 rounded-3xl mx-auto md:mx-0 mb-6 flex items-center justify-center text-emerald-700 font-bold text-3xl">
+            <div className="w-24 h-24 bg-emerald-100 rounded-3xl mx-auto md:mx-0 mb-6 flex items-center justify-center text-slate-700 font-bold text-3xl">
               {counselor.name.charAt(0)}
             </div>
-            <div className="inline-block px-3 py-1 mb-4 text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 rounded-full">
+            <div className="inline-block px-3 py-1 mb-4 text-xs font-bold uppercase tracking-wider text-slate-700 bg-emerald-50 rounded-full">
               Available for conversation
             </div>
             <h1 className="text-3xl font-bold text-slate-900 mb-2">{counselor.name}</h1>
-            <p className="text-emerald-600 font-medium mb-4">{counselor.expertise}</p>
+            <p className="text-slate-600 font-medium mb-4">{counselor.expertise}</p>
             <p className="text-slate-500 text-sm flex items-center justify-center md:justify-start gap-1">
               📍 {counselor.location}
             </p>
@@ -146,7 +146,7 @@ export default function CounselorProfile({ params }: PageProps) {
               </p>
 
               <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                <span className="w-1.5 h-6 bg-emerald-500 rounded-full" />
+                <span className="w-1.5 h-6 bg-slate-500 rounded-full" />
                 Counseling Approach
               </h3>
               <p className="text-slate-600 leading-relaxed text-lg">
