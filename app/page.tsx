@@ -66,8 +66,8 @@ export default function LandingPage() {
         <SectionContainer className="py-0 flex flex-col md:flex-row justify-between items-center gap-6">
           <span className="font-bold text-slate-900 text-xl">Jesus Connect</span>
           <div className="flex gap-8 text-slate-500 text-sm">
-            <a href="#" className="hover:text-slate-900">Privacy Policy</a>
-            <a href="#" className="hover:text-slate-900">Terms of Service</a>
+            <a href="/privacy" className="hover:text-slate-900">Privacy Policy</a>
+            <a href="/terms" className="hover:text-slate-900">Terms of Service</a>
             <a href="#" className="hover:text-slate-900">Contact Us</a>
           </div>
           <p className="text-slate-400 text-sm">© 2026 Jesus Connect. All rights reserved.</p>

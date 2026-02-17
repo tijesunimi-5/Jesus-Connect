@@ -104,9 +104,9 @@ export default function CounselorDashboard() {
           <p className="text-slate-100/80 text-sm mb-6 max-w-md">
             Check our counselor handbook for tips on handling difficult topics or when to escalate a situation to the admin team.
           </p>
-          <button className="px-6 py-3 bg-slate-500 text-white text-sm font-bold rounded-2xl hover:bg-slate-400 transition-colors shadow-xl">
+          <a href='/counselor/guide' className="px-6 py-3 bg-slate-500 text-white text-sm font-bold rounded-2xl hover:bg-slate-400 transition-colors shadow-xl">
             View Handbook
-          </button>
+          </a>
         </div>
         {/* Background Decor */}
         <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl -mr-20 -mt-20" />

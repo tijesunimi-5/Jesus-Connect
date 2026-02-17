@@ -12,7 +12,7 @@ export default function CounselorLayout({ children }: { children: React.ReactNod
     // { name: 'Dashboard', href: '/counselor/dashboard', icon: '📊' },
     { name: 'Conversations', href: '/counselor/dashboard', icon: '💬' },
     { name: 'Profile', href: '/counselor/profile', icon: '👤' },
-    { name: 'Settings', href: '#', icon: '⚙️' },
+    { name: 'Settings', href: '/counselor/settings', icon: '⚙️' },
   ];
 
   return (
