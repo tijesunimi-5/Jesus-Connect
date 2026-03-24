@@ -133,6 +133,16 @@ body {
   background: #9a79dc;
 }
 
+/* In globals.css */
+@keyframes slide-up {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out forwards;
+}
+
 /* 
 #3B3F9F
 #432B7A

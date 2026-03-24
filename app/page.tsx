@@ -23,10 +23,11 @@ export default function LandingPage() {
             Connect anonymously with trusted counselors and godly mentors who care about your spiritual, emotional, and physical well-being.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/help">
+            <Link href="/onboarding/user">
               <Button className="px-10">I Need Help</Button>
             </Link>
-            <Button variant="outline">I Am a Counselor</Button>
+            <Link href={'/onboarding/counsellor'}>
+              <Button variant="outline">I Am a Counselor</Button></Link>
           </div>
         </SectionContainer>
       </div>

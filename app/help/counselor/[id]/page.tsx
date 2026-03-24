@@ -97,10 +97,9 @@ export default function CounselorProfile({ params }: PageProps) {
         </Link>
       </div>
 
-      {/* Grid Container - Added items-start to allow sticky behavior */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
 
-        {/* Left Column: Header Card & Focus Areas (Sticky on Desktop) */}
+        {/* Left Column: Header Card & Focus Areas */}
         <div className="lg:col-span-1 lg:sticky lg:top-8 space-y-6">
           <Card className="text-center md:text-left border-emerald-50 shadow-emerald-900/5">
             <div className="w-24 h-24 bg-emerald-100 rounded-3xl mx-auto md:mx-0 mb-6 flex items-center justify-center text-slate-700 font-bold text-3xl">
@@ -136,7 +135,7 @@ export default function CounselorProfile({ params }: PageProps) {
           </Card>
         </div>
 
-        {/* Right Column: Bio & CTA (Scrolling content) */}
+        {/* Right Column: Bio & CTA */}
         <div className="lg:col-span-2 space-y-8">
           <Card className="p-8 md:p-12 border-none shadow-sm">
             <h2 className="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-50 pb-4">About</h2>
@@ -152,8 +151,7 @@ export default function CounselorProfile({ params }: PageProps) {
               <p className="text-slate-600 leading-relaxed text-lg">
                 Every session is grounded in compassion and confidentiality. My goal is to provide
                 practical guidance that aligns with biblical truth, ensuring you feel heard,
-                respected, and empowered to take the next steps in your journey. We will focus on
-                restoration, practical steps, and spiritual alignment.
+                respected, and empowered to take the next steps in your journey.
               </p>
             </div>
           </Card>
@@ -168,26 +166,41 @@ export default function CounselorProfile({ params }: PageProps) {
             </p>
           </div>
 
-          {/* CTA Section */}
-          <div className="bg-slate-900 rounded-[40px] p-10 md:p-16 text-center text-white shadow-2xl relative overflow-hidden">
+          {/* Adjusted CTA Section */}
+          <div className="bg-slate-900 rounded-[40px] p-10 md:p-16 text-center text-white shadow-2xl relative overflow-hidden border border-slate-800">
             <div className="relative z-10">
               <h2 className="text-3xl font-bold mb-4 tracking-tight">Ready to begin a private conversation?</h2>
-              <p className="text-slate-400 mb-10 max-w-md mx-auto text-lg">
+              <p className="text-slate-400 mb-12 max-w-md mx-auto text-lg leading-relaxed">
                 Take the first step today. Your identity remains anonymous until you choose to share it.
               </p>
-              <Button className="bg-emerald-600 hover:bg-emerald-500 text-white px-12 py-5 text-xl border-none shadow-lg shadow-emerald-900/40">
-                Start Private Conversation
-              </Button>
-              <div className="mt-8 flex items-center justify-center gap-4 text-sm text-slate-500">
-                <span className="flex items-center gap-1">🔒 128-bit Encryption</span>
+
+              <Link
+                href={`/help/chat/${counselor.id}`}
+                className="inline-flex items-center justify-center px-12 py-5 text-xl font-bold text-white transition-all duration-300 bg-emerald-600 rounded-2xl hover:bg-emerald-500 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(16,185,129,0.3)] active:scale-95 group relative overflow-hidden"
+              >
+                {/* Subtle Shimmer Effect */}
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
+
+                <span className="relative flex items-center gap-2">
+                  Start Private Conversation
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
+                </span>
+              </Link>
+
+              <div className="mt-12 flex items-center justify-center gap-6 text-sm text-slate-500 font-medium">
+                <span className="flex items-center gap-2">
+                  <span className="text-emerald-500">🔒</span> 128-bit Encryption
+                </span>
                 <span className="w-1 h-1 bg-slate-700 rounded-full" />
-                <span className="flex items-center gap-1">👤 Anonymous Mode</span>
+                <span className="flex items-center gap-2">
+                  <span className="text-emerald-500">👤</span> Anonymous Mode
+                </span>
               </div>
             </div>
 
             {/* Background Decorative Accents */}
             <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-[80px] -mr-32 -mt-32" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-slate-500/10 rounded-full blur-[80px] -ml-32 -mb-32" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-[80px] -ml-32 -mb-32" />
           </div>
         </div>
       </div>
